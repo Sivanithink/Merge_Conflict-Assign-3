@@ -34,8 +34,7 @@ The following screenshots document the key stages of encountering and resolving 
 3.  **Conflict Markers in `index.html` (GitHub Conflict View):**
     *Description: This screenshot displays the `index.html` file within GitHub's conflict resolution interface, clearly showing the `<<<<<<< feature/add-content`, `=======`, and `>>>>>>> master` conflict markers.*
    <img width="611" alt="ass 3 conflict 1" src="https://github.com/user-attachments/assets/77ccd9d6-59e1-4f6a-abfe-7e8add7a28a7" />
-
-    <img width="461" alt="ass conflict error" src="https://github.com/user-attachments/assets/81900946-740e-4d17-ad56-72e6b9f77502" />
+   <img width="461" alt="ass conflict error" src="https://github.com/user-attachments/assets/81900946-740e-4d17-ad56-72e6b9f77502" />
 
     ```
     ```
@@ -81,27 +80,4 @@ Working on this assignment, I ran into a merge conflict, and here’s how I sort
 
 ---
 
-## ⚙️ Technology Stack
 
-* **HTML5**
-* **CSS3**
-* **Git & GitHub**
-
----
-
-## ✨ GitHub Flow Implementation
-
-This repository demonstrates the GitHub Flow through the following steps:
-
-1.  The `master` branch (as named in your repository) was kept as the primary stable branch.
-2.  New work was started on feature branches (`feature/update-styling`, `feature/add-content`) branched off `master`.
-3.  Commits were made locally and pushed to remote feature branches.
-4.  Pull Requests were opened on GitHub for each feature branch.
-5.  The first feature branch (`feature/update-styling`) was merged into `master`.
-6.  The second feature branch (`feature/add-content`) resulted in a merge conflict with `master`.
-7.  The conflict was resolved locally, and the changes were pushed to `feature/add-content`.
-8.  The updated `feature/add-content` branch was then merged into `master` via its Pull Request.
-
-This process ensured that `master` was updated in a controlled manner.
-
----
