@@ -80,4 +80,31 @@ Working on this assignment, I ran into a merge conflict, and here’s how I sort
 
 ---
 
-
+# Assignment 4: Git Hooks & Automation
+### Git Hooks & Husky
+I learned that Git provides "hooks," which are essentially scripts that Git can automatically execute at specific points in its lifecycle (e.g., before a commit or before a push). However, managing these hooks across a team can be challenging because they reside in the local `.git/hooks` directory, which isn't version-controlled.
+**`Husky`** is the tool I used to solve this. It simplifies the management of Git hooks by allowing them to be defined in project configuration files (within the `.husky/` directory) that are shared with everyone. When the project dependencies are installed, `Husky` ensures these shared hooks are properly set up locally.
+## Key Automations Implemented
+Here’s how I've configured automation in this project:
+### 1. Pre-Commit Quality Checks (via `pre-commit` hook)
+Before any code is actually committed, `Husky` triggers a series of automated checks:
+* **Code Linting (e.g., with `ESLint`):** `ESLint` analyzes the JavaScript code to find potential errors, enforce coding standards, and identify stylistic issues. This helps catch bugs early and maintain code health.
+* **Code Formatting (e.g., with `Prettier`):** `Prettier` automatically reformats the code to ensure a consistent visual style across the project (handling things like indentation, spacing, and line breaks). This improves readability.
+* **Efficient Processing with `lint-staged`:** To ensure these pre-commit checks are fast and don't bog down the commit process, `lint-staged` is used. It intelligently runs the linters and formatters *only* on the files that have been staged for the current commit.
+If any of these tools report errors that aren't automatically fixed, `Husky` will prevent the commit from completing, prompting me to address the issues first.
+### 2. Commit Message Standardization (via `commit-msg` hook)
+To maintain a clear, useful, and navigable commit history, I've used `commitlint`.
+* This tool, triggered by `Husky` after I write a commit message but before the commit is finalized, checks if the message adheres to a specific convention (such as Conventional Commits, e.g., `feat: add new login button`).
+* If the message format is incorrect, the commit is aborted, ensuring that all commit messages are structured consistently.
+### 3. Continuous Integration (CI) with GitHub Actions
+As an additional layer of quality assurance, I've configured a basic CI pipeline using **GitHub Actions**.
+* This workflow automatically runs on GitHub's servers whenever code is pushed to the repository or a pull request is created.
+* It typically executes tasks like installing dependencies and running the same linters (and could also include automated tests) to verify the code's integrity on a clean environment. This acts as a server-side safety net.
+## Benefits of This Automated Workflow
+Implementing these automations brings several significant advantages:
+* **Improved Code Quality:** Reduces bugs and inconsistencies.
+* **Enhanced Consistency:** Ensures all code and commit messages follow project standards.
+* **Early Error Detection:** Catches issues locally before they become bigger problems or affect others.
+* **Increased Productivity:** Automates repetitive checks, allowing developers to focus on core tasks.
+* **Better Team Collaboration:** Makes the codebase easier to read, understand, and contribute to.
+This setup demonstrates a more robust and professional approach to software development by integrating quality checks directly into the workflow.
