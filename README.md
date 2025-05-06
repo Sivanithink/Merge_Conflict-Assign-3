@@ -81,9 +81,11 @@ Working on this assignment, I ran into a merge conflict, and here’s how I sort
 ---
 
 # Assignment 4: Git Hooks & Automation
+
 ### Git Hooks & Husky
 I learned that Git provides "hooks," which are essentially scripts that Git can automatically execute at specific points in its lifecycle (e.g., before a commit or before a push). However, managing these hooks across a team can be challenging because they reside in the local `.git/hooks` directory, which isn't version-controlled.
 **`Husky`** is the tool I used to solve this. It simplifies the management of Git hooks by allowing them to be defined in project configuration files (within the `.husky/` directory) that are shared with everyone. When the project dependencies are installed, `Husky` ensures these shared hooks are properly set up locally.
+
 ## Key Automations Implemented
 Here’s how I've configured automation in this project:
 ### 1. Pre-Commit Quality Checks (via `pre-commit` hook)
@@ -100,6 +102,7 @@ To maintain a clear, useful, and navigable commit history, I've used `commitlint
 As an additional layer of quality assurance, I've configured a basic CI pipeline using **GitHub Actions**.
 * This workflow automatically runs on GitHub's servers whenever code is pushed to the repository or a pull request is created.
 * It typically executes tasks like installing dependencies and running the same linters (and could also include automated tests) to verify the code's integrity on a clean environment. This acts as a server-side safety net.
+
 ## Benefits of This Automated Workflow
 Implementing these automations brings several significant advantages:
 * **Improved Code Quality:** Reduces bugs and inconsistencies.
@@ -108,3 +111,19 @@ Implementing these automations brings several significant advantages:
 * **Increased Productivity:** Automates repetitive checks, allowing developers to focus on core tasks.
 * **Better Team Collaboration:** Makes the codebase easier to read, understand, and contribute to.
 This setup demonstrates a more robust and professional approach to software development by integrating quality checks directly into the workflow.
+
+##Setting up Husky
+*** Step 1: Install Husky
+* To install Husky, you need to run the following command in your project's root directory:
+* Terminal
+* npm install husky --save-dev
+
+***Step 2: Enable Git hooks
+* After installing Husky, you need to configure it to handle your Git hooks:
+* Terminal
+* npx husky install
+
+***Step 3: Add hook scripts
+* You can add Git hooks using Husky by creating a script in the .husky/ directory. For example, to add a pre-commit hook that runs linting before every commit, you could do the following:
+* Terminal
+* npx husky add .husky/pre-commit "npm run lint"
