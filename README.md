@@ -112,18 +112,18 @@ Implementing these automations brings several significant advantages:
 * **Better Team Collaboration:** Makes the codebase easier to read, understand, and contribute to.
 This setup demonstrates a more robust and professional approach to software development by integrating quality checks directly into the workflow.
 
-##Setting up Husky
-*** Step 1: Install Husky
+## Setting up Husky
+* ** Step 1: Install Husky
 * To install Husky, you need to run the following command in your project's root directory:
 * Terminal
 * npm install husky --save-dev
 
-***Step 2: Enable Git hooks
+* **Step 2: Enable Git hooks
 * After installing Husky, you need to configure it to handle your Git hooks:
 * Terminal
 * npx husky install
 
-***Step 3: Add hook scripts
+* **Step 3: Add hook scripts
 * You can add Git hooks using Husky by creating a script in the .husky/ directory. For example, to add a pre-commit hook that runs linting before every commit, you could do the following:
 * Terminal
 * npx husky add .husky/pre-commit "npm run lint"
